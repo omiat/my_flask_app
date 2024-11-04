@@ -1,0 +1,70 @@
+
+<header>
+    <nav class="main_navbar top_navbar">
+        <div class="ed_logo" id="logo-id">Beng'Beng</div>
+        <div class="menu-toggle" id="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="ul-divider">
+            <!-- Primary Navigation -->
+            <ul class="primary-nav">
+                <li><a href="{{ url_for('admin_bp.howitworks') }}">How It Works</a></li>
+                <li><a href="{{ url_for('admin_bp.projects') }}"">Browse Projects</a></li>
+                <li><a href="{{ url_for('admin_bp.pricing') }}">Pricing</a></li>
+                {% if is_logged_in %}
+               <li><a href="{{ url_for('admin_bp.Dashboard') }}">Profile</a></li>
+               <li><a href="{{ url_for('admin_bp.support') }}">Support</a></li>
+               <li><a href="#">Blog</a></li>
+                {% else %}
+                <li><a href="{{ url_for('admin_bp.create_project') }}">Create Project</a></li>
+                {% endif %}
+                
+            </ul>
+
+            <!-- Secondary Navigation (Optional) -->
+            <ul class="secondary-nav">
+                {% if is_logged_in %}
+                {% else %}
+                 <li><a href="{{url_for('admin_bp.index')}}">Apply as a Freelancer</a></li>
+                 {% endif %}
+                
+                
+                {% if is_logged_in %}
+                <li class="dropdown">
+                    <a href="#" class="wifi-icon" style="display: flex;"><span class="status-indicator" style=" width: 12px; height: 12px; background-color: green; display: inline-block; border-radius: 50%; position: relative; top: 18px; margin-right: 5px;"></span>{{ session['phone_number'] }}</a>
+                    <style></style>
+                    <ul class="dropdown-content">
+                        <li><a href="{{ url_for('admin_bp.logout') }}">Logout</a></li>
+                    </ul>
+                </li>
+                
+                
+                {% else %}
+                <li><a href="{{ url_for('admin_bp.login') }}">Sign In</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<script>
+    // Function to initialize header behavior
+function initHeader() {
+     // Event listener for scroll event to apply sticky class
+     window.addEventListener('scroll', () => {
+        const scrollThreshold = 60; // Pixels to scroll before the header becomes sticky
+
+        if (window.scrollY > scrollThreshold) {
+            header.classList.add('sticky'); // Add sticky class
+        } else {
+            header.classList.remove('sticky'); // Remove sticky class
+        }
+    });
+}
+
+// Call the function to activate the header behavior
+initHeader();
+
+</script>

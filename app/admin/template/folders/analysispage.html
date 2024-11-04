@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block title %}B&B|Home{% endblock %}
+
+{% block content %}
+<main class="create-project"  style="margin-top: 20px;" data-controller="create-project" data-create-project-env="production">
+    <!-- Sidebar -->
+    {% if is_logged_in %}
+    <!-- Sidebar (visible only if logged in) -->
+
+     {% include 'folders/sidebar.html' %}
+    {% endif %}
+     <!-- Sidebar ends -->
+    <!-- main content -->
+     <div class="pwd-content">
+      <section class="subscription-dashboard">
+        <h2>Review & Subscription Details</h2>
+        <div class="subscription-dashboard-dp">
+          <div class="subscription-table">
+            <div class="product-options">
+                <div class="header-row">
+                    <span class="column">Product/Options</span>
+                    <span class="column">Price/Duration</span>
+                    <span class="column">Purchase Date</span>
+                    <span class="column">Expiration Date</span>
+                    <span class="column">Action Date</span>
+                </div>
+                <div class="subscription-details">
+                    <!-- Repeat for each subscription plan -->
+                    <div class="row">
+                        <span class="column">Gold Plan</span>
+                        <span class="column">UGX 500,000 / Year</span>
+                        <span class="column">12/12/2022</span>
+                        <span class="column">12/12/2023</span>
+                        <span>
+                          <a href="">Renew</a>
+                          <a href="">Close</a>
+                        </span>
+                       
+                    </div>
+                    <div class="row">
+                        <span class="column">Silver Plan</span>
+                        <span class="column">UGX 300,000 / Year</span>
+                        <span class="column">10/11/2023</span>
+                        <span class="column">10/11/2024</span>
+                        <span>
+                          <a href="">Renew</a>
+                          <a href="">Close</a>
+                        </span>
+                    </div>
+                </div>
+                <p class="empty-cart-message">Your subscription details will appear here.</p>
+            </div>
+      
+            <div class="promo-section">
+                <h3>Apply Promo Code</h3>
+                <input type="text" class="promo-input" placeholder="Enter promo code if you have one" />
+                <button class="validate-promo">Validate Code</button>
+            </div>
+        </div>
+      
+        <div class="order-summary">
+            <h3>Subscription Summary</h3>
+            <div class="summary-item">
+                <span>Subtotal:</span>
+                <span>UGX 500,000</span>
+            </div>
+            <div class="summary-item">
+                <span>Discount:</span>
+                <span>UGX 50,000</span>
+            </div>
+            <div class="summary-total">
+                <span>Total Due Today:</span>
+                <span class="total-amount">UGX 450,000</span>
+            </div>
+            <button class="checkout-btn">Checkout <span class="arrow">→</span></button>
+            <a href="#" class="continue-shopping">Continue Shopping</a>
+        </div>
+        </div>
+        
+      </section>  
+     </div>
+     <!-- Main content ends -->
+</main>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "base3.html" %}
+
+{% block title %}OTP Verification{% endblock %}
+
+{% block content %}
+<div class="login-wrapper">
+    <div class="login-image">
+        <!-- <img src="{{ url_for('admin_bp.static', filename='path_to_your_image.jpg') }}" alt="Background Image"> -->
+    </div>
+    <div class="login-content">
+        <div class="login-form-container">
+            <h1><span class="beng">Enter</span><span class="bengbeng">Your One Time Password</span></h1>
+            <!-- <h2>Confirm OTP Sent to your Mobile</h2> -->
+            <form method="POST" action="{{ url_for('admin_bp.otp_verification', phone_number=phone_number) }}">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="otp">Enter OTP:</label>
+                    <input type="text" placeholder="Enter One Time Password" name="otp" style="color: #000;" required>
+                  </div>
+                </div>
+                <button type="submit" class="btn-submit">Verify OTP</button>
+            </form>
+            {% with messages = get_flashed_messages() %}
+              {% if messages %}
+                <ul>
+                {% for message in messages %}
+                  <li style="color: red;">{{ message }}</li>
+                {% endfor %}
+                </ul>
+              {% endif %}
+            {% endwith %}
+            <div class="form-options">
+                <a href="{{ url_for('admin_bp.login') }}">Back to Login</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

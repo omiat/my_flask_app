@@ -1,0 +1,43 @@
+{% extends "base3.html" %}
+
+{% block title %}B&B|Login{% endblock %}
+
+{% block content %}
+<div class="login-wrapper">
+    <div class="login-image">
+        <!-- <img src="{{ url_for('admin_bp.static', filename='path_to_your_image.jpg') }}" alt="Background Image"> -->
+    </div>
+    <div class="login-content">
+        <div class="signin-container">
+          <div class="form-sectio" style="min-width: 400px;">
+            <h1><span class="beng">Sign</span> <span class="bengbeng">In</span></h1>
+            <h2 style="font-size: 13px; color: #333;">Sign in to receive OTP to your mobile phone</h2>
+            <form method="POST" action="{{ url_for('admin_bp.login') }}">
+                <div class="form-row">
+                  <div class="form-group">
+                    <!-- <label for="phone_number">Enter Phone number</label> -->
+                    <input type="text" placeholder="Enter Mobile Number" name="phone_number" required>
+                
+                  </div>
+                </div>
+                <button type="submit"  class="btn-submit">Send OTP</button>
+            </form>
+            {% with messages = get_flashed_messages() %}
+              {% if messages %}
+                <ul>
+                {% for message in messages %}
+                  <li style="color: red;">{{ message }}</li>
+                {% endfor %}
+                </ul>
+              {% endif %}
+            {% endwith %}
+            <div class="form-options" style="display: flex; flex-direction: column;">
+                <a href="{{ url_for('admin_bp.home') }}">Back to Home</a>
+         
+                <a href="{{ url_for('admin_bp.index') }}">Don't have an account? Register</a>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
+{% endblock %}

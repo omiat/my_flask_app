@@ -1,0 +1,226 @@
+{% extends 'base.html' %}
+
+{% block title %}B&B | Home{% endblock %}
+
+{% block content %}
+<!-- Main Banner Section with Video Background and Slideshow -->
+<header class="banner">
+    <!-- Video Background -->
+    <div class="video-background">
+        <video autoplay muted loop>
+            <source src="{{ url_for('admin_bp.static', filename='uploads/background_video1.mp4') }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    
+    <!-- Overlay for Blurriness and Visibility -->
+    <div class="overlay"></div>
+
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <h1>The Complete Content Creation Platform</h1>
+            <p>Record, Create, collaborate & distribute to over a billion viewers online</p>
+            <div class="stats">
+                <span>This Week: 20,298,466 Downloads</span> | 
+                <span>10,010 Viewers</span>
+            </div>
+        </div>
+        <div class="mySlides fade">
+            <h1>Create Stunning Videos</h1>
+            <p>Transform your ideas into compelling visuals and share them globally</p>
+            <div class="stats">
+                <span>This Week: 15,876,234 Downloads</span> | 
+                <span>8,456 Viewers</span>
+            </div>
+        </div>
+        <div class="mySlides fade">
+            <h1>Collaborate with Global Creators</h1>
+            <p>Work with the best talents from around the world and build something extraordinary</p>
+            <div class="stats">
+                <span>This Week: 25,789,456 Downloads</span> | 
+                <span>12,134 Viewers</span>
+            </div>
+        </div>
+
+        <!-- Search Form (Common in all slides) -->
+        <form class="search-form">
+            <input type="text" placeholder="Search for Contents/Videos, Business Solutions, or Resources">
+        </form>
+    </div>
+</header>
+
+<!-- Info Sections -->
+<section class="info-sections">
+    <div class="info-block">
+        <h2>Create Your Masterpieces</h2>
+        <p>Bring your visions to life with seamless creativity.</p>
+        <p>With the powerful tools we offer, content creators on our platform have crafted thousands of captivating projects; we support a thriving community of over 2.1 million registered users. Our popular directory connects nearly 20 million visitors and facilitates millions of content views daily, empowering you to share your unique creations with the world.</p>
+    </div>
+    <div class="info-block">
+        <h2>Beng'Beng Podcast</h2>
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/llJ5QVT_mto?si=TRlJ306PtzpsITH2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+    <div class="info-block">
+        <img src="path/to/atera-logo.png" alt="Atera">
+        <h3>Atera</h3>
+        <div class="rating">
+            <span>★★★★☆</span>
+            <span>1,347 Ratings</span>
+        </div>
+        <p>Atera harnesses AI to power its all-in-one Remote Monitoring and Management (RMM) and automation platform for IT management.</p>
+        <div class="buttons">
+            <button>Learn More</button>
+            <button>Visit Website</button>
+        </div>
+    </div>
+</section>
+
+<section class="features-section">
+    <div class="container">
+        <h2>What Our Platform Can Do for You</h2>
+        <div class="features-grid">
+            <div class="feature-block">
+                <i class="feature-icon lightbulb-icon"></i>
+                <p>Inspire with great content</p>
+            </div>
+            <div class="feature-block">
+                <i class="feature-icon globe-icon"></i>
+                <p>Connect you with creators worldwide</p>
+            </div>
+            <div class="feature-block">
+                <i class="feature-icon smiley-icon"></i>
+                <p>Simplify content production</p>
+            </div>
+            <div class="feature-block">
+                <i class="feature-icon cart-icon"></i>
+                <p>Money-back guarantee</p>
+            </div>
+        </div>
+        {% if is_logged_in %}
+        {% else %}
+        <button class="register-button" onclick="redirectToSupport()">Talk to us</button>
+        <script> function redirectToSupport() { window.location.href = "{{ url_for('admin_bp.support') }}"; } </script>
+        <button class="register-button" onclick="redirectToIndex()">Register</button>
+        <script> function redirectToIndex() { window.location.href = "{{ url_for('admin_bp.index') }}"; } </script>
+        {% endif %}
+    </div>
+</section>
+
+
+<section class="subscription-section">
+    <div class="container">
+        <h2>Choose Your Subscription Plan</h2>
+            <h3>10-day free trial. No credit card required.</h3>
+        <!-- Subscription Cards -->
+        <div class="plans-grid">
+            <!-- Basic Plan -->
+            <div class="plan-card">
+                <h3>Silver Plan</h3>
+                <p class="price"><span id="basic-price">19.99</span> USD</p>
+                
+                <!-- Dropdown for Plan Selection -->
+                <label for="basic-plan-duration">Choose your plan:</label>
+                <select id="basic-plan-duration" class="plan-duration" data-plan="basic">
+                    <option value="monthly">Monthly</option>
+                    <option value="quarterly">Quarterly</option>
+                    <option value="yearly">Yearly</option>
+                </select>
+
+                <p>Access to Basic Features</p>
+                <ul class="features">
+                    <li> 10 GB Storage</li>
+                    <li>1 Email Support</li>
+                    <li>Limited support upto 2/day</li>
+                </ul>
+                <button class="purchase-btn" data-plan="basic">Purchase</button>
+            </div>
+
+            <!-- Pro Plan -->
+            <div class="plan-card">
+                <h3>Platinum Plan</h3>
+                <p class="price"><span id="pro-price">49.99</span> USD</p>
+
+                <!-- Dropdown for Plan Selection -->
+                <label for="pro-plan-duration">Choose your plan:</label>
+                <select id="pro-plan-duration" class="plan-duration" data-plan="pro">
+                    <option value="monthly">Monthly</option>
+                    <option value="quarterly">Quarterly</option>
+                    <option value="yearly">Yearly</option>
+                </select>
+
+                <p>Features: All Platinum features</p>
+                <ul class="features">
+                    <li> 100 GB Storage</li>
+                    <li> Whatsapp Priority Support 10/day</li>
+                  <li>5 Email Support</li>
+                </ul>
+                
+                <button class="purchase-btn" data-plan="pro">Purchase</button>
+            </div>
+
+            <!-- Enterprise Plan -->
+            <div class="plan-card">
+                <h3>Enterprise Plan</h3>
+                <p class="price"><span id="enterprise-price">99.99</span> USD</p>
+
+                <!-- Dropdown for Plan Selection -->
+                <label for="enterprise-plan-duration">Choose your plan:</label>
+                <select id="enterprise-plan-duration" class="plan-duration" data-plan="enterprise">
+                    <option value="monthly">Monthly</option>
+                    <option value="quarterly">Quarterly</option>
+                    <option value="yearly">Yearly</option>
+                </select>
+
+                <p>Features: All features</p>
+                <ul class="features">
+                    <li> Custom Solutions</li>
+                    <li> 24/7 VIP Support</li>
+                    <li> Unlimited Storage</li>
+                </ul>
+                <button class="purchase-btn" data-plan="enterprise">Purchase</button>
+            </div>
+        </div>
+
+        <!-- Hidden Inputs for Price Calculation -->
+        <input type="hidden" id="basic-monthly-price" value="19.99">
+        <input type="hidden" id="basic-quarterly-price" value="49.99">
+        <input type="hidden" id="basic-yearly-price" value="149.99">
+        <input type="hidden" id="pro-monthly-price" value="49.99">
+        <input type="hidden" id="pro-quarterly-price" value="129.99">
+        <input type="hidden" id="pro-yearly-price" value="449.99">
+        <input type="hidden" id="enterprise-monthly-price" value="99.99">
+        <input type="hidden" id="enterprise-quarterly-price" value="269.99">
+        <input type="hidden" id="enterprise-yearly-price" value="899.99">
+    </div>
+</section>
+
+
+<section class="testimonial-section">
+    <h2>What Our Users Are Saying</h2>
+    <div class="testimonial-slider">
+        <div class="testimonial">
+            <p>"Beng'Beng has transformed the way I create content. The tools are intuitive, and the community is inspiring!"</p>
+            <h3>Jane Doe</h3>
+            <h4>Content Creator</h4>
+        </div>
+        <div class="testimonial">
+            <p>"The resources and support from Beng'Beng have been invaluable in my creative journey. Highly recommend!"</p>
+            <h3>John Smith</h3>
+            <h4>Digital Artist</h4>
+        </div>
+        <div class="testimonial">
+            <p>"I love the collaborative features! It’s a game-changer for content creators looking to connect."</p>
+            <h3>Alice Johnson</h3>
+            <h4>Filmmaker</h4>
+        </div>
+    </div>
+    <div class="slider-controls">
+        <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+        <button class="next" onclick="changeSlide(1)">&#10095;</button>
+    </div>
+</section>
+
+
+{% endblock %}

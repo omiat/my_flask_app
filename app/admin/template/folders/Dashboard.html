@@ -1,0 +1,22 @@
+
+
+{% extends 'base.html' %}
+
+{% block title %}B&B|Home{% endblock %}
+
+{% block content %}
+<main class="create-project"  style="margin-top: 20px;" data-controller="create-project" data-create-project-env="production">
+    <!-- Sidebar -->
+    {% if is_logged_in %}
+    <!-- Sidebar (visible only if logged in) -->
+    {% include 'folders/sidebar.html' %}
+    {% endif %}
+     <!-- Sidebar ends -->
+    <!-- main content -->
+     <div class="pwd-content">
+       <div id="drop-area"></div>
+     </div>
+     <!-- Main content ends -->
+</main>
+{% endblock %}
+ 

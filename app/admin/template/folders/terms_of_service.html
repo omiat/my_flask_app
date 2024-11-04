@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+{% block title %}Terms of Service{% endblock %}
+{% block content %}
+<div class="terms-container">
+    <header class="terms-header">
+        <h1>Terms of Service</h1>
+        <p>Effective Date: {{ effective_date.strftime('%B %d, %Y') }}</p>
+        <p>By accessing or using our services, you agree to comply with these Terms of Service. If you do not agree with any part of these terms, please do not use our services.</p>
+    </header>
+
+    <div class="terms-of-service-container-frame" style="padding: 20px 100px;">
+        <section class="terms-section" id="acceptance">
+            <h2>1. Acceptance of Terms</h2>
+            <p>These Terms of Service govern your access to and use of our services. By creating an account or using our services, you confirm that you have read, understood, and agree to be bound by these terms.</p>
+        </section>
+    
+        <section class="terms-section" id="services">
+            <h2>2. Services Provided</h2>
+            <p>We offer video editing and content creation services designed to meet the needs of both clients and content editors. Our services include, but are not limited to:</p>
+            <ul>
+                <li>Video editing (cutting, transitions, effects)</li>
+                <li>Content writing and editing</li>
+                <li>Social media content creation</li>
+                <li>Consultation for content strategy</li>
+            </ul>
+            <p>All services must comply with applicable laws and regulations. We reserve the right to modify or discontinue our services at any time without prior notice.</p>
+        </section>
+    
+        <section class="terms-section" id="user-accounts">
+            <h2>3. User Accounts</h2>
+            <p>To access certain features of our services, you may be required to create a user account. You agree to:</p>
+            <ul>
+                <li>Provide accurate, current, and complete information during the registration process.</li>
+                <li>Maintain the security of your password and accept responsibility for all activities that occur under your account.</li>
+                <li>Notify us immediately of any unauthorized use of your account or any other breach of security.</li>
+                <li>Be responsible for all activities that occur under your account, regardless of whether they are authorized by you.</li>
+            </ul>
+        </section>
+    
+        <section class="terms-section" id="user-responsibilities">
+            <h2>4. User Responsibilities</h2>
+            <p>As a user, you agree to use our services only for lawful purposes and in accordance with these Terms of Service. You shall not:</p>
+            <ul>
+                <li>Use our services to transmit any content that is unlawful, harmful, or offensive.</li>
+                <li>Impersonate any person or entity or misrepresent your affiliation with any person or entity.</li>
+                <li>Engage in any conduct that restricts or inhibits anyone’s use or enjoyment of our services.</li>
+                <li>Use any automated means to access our services for any purpose without our express written permission.</li>
+            </ul>
+        </section>
+    
+        <section class="terms-section" id="payment-terms">
+            <h2>5. Payment Terms</h2>
+            <p>Some of our services may require payment. By using our paid services, you agree to pay all fees associated with your usage. Payment details include:</p>
+            <ul>
+                <li>Fees are charged at the rates specified at the time of purchase.</li>
+                <li>Payments are non-refundable, except as required by law.</li>
+                <li>We may change our fees from time to time; however, we will notify you of any such changes in advance.</li>
+            </ul>
+        </section>
+    
+        <section class="terms-section" id="termination">
+            <h2>6. Termination of Services</h2>
+            <p>We reserve the right to suspend or terminate your access to our services if:</p>
+            <ul>
+                <li>You breach these Terms of Service.</li>
+                <li>You engage in conduct that we believe violates our policies or is harmful to our users or our services.</li>
+                <li>You fail to pay any fees owed to us.</li>
+            </ul>
+            <p>Upon termination, your right to use the services will immediately cease, and you may lose access to your account and any content associated with it.</p>
+        </section>
+    
+        <section class="terms-section" id="disclaimer">
+            <h2>7. Disclaimer of Warranties</h2>
+            <p>Our services are provided on an "as is" basis without any warranties of any kind. We do not guarantee:</p>
+            <ul>
+                <li>The services will be uninterrupted, secure, or error-free.</li>
+                <li>The results obtained from using the services will be accurate or reliable.</li>
+                <li>The quality of any products, services, or information obtained through our services will meet your expectations.</li>
+            </ul>
+        </section>
+    
+        <section class="terms-section" id="limitation-of-liability">
+            <h2>8. Limitation of Liability</h2>
+            <p>In no event shall we be liable for any indirect, incidental, or consequential damages arising from the use of or inability to use our services, even if we have been advised of the possibility of such damages. Our total liability to you shall not exceed the amount you paid for the services in the preceding three months.</p>
+        </section>
+    
+        <section class="terms-section" id="intellectual-property">
+            <h2>9. Intellectual Property</h2>
+            <p>All content, trademarks, and other intellectual property rights associated with our services are owned by us or our licensors. You may not use, reproduce, or distribute any of our intellectual property without our express permission.</p>
+        </section>
+    
+        <section class="terms-section" id="changes-to-terms">
+            <h2>10. Changes to Terms</h2>
+            <p>We may modify these Terms of Service from time to time. We will notify you of any changes by posting the new terms on this page. It is your responsibility to review these terms periodically for any updates. Continued use of our services after the posting of changes constitutes your acceptance of such changes.</p>
+        </section>
+    
+        <section class="contact-terms">
+            <h2>Questions or Concerns?</h2>
+            <p>If you have any questions regarding these Terms of Service, please <a href="{{ url_for('admin_bp.support') }}">contact our support team</a>.</p>
+        </section>
+    </div>
+</div>
+
+<script>
+    // Reveal sections on scroll
+window.addEventListener('scroll', revealSections);
+
+function revealSections() {
+    const sections = document.querySelectorAll('.terms-section');
+    const revealPoint = 150;
+
+    sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        if (sectionTop < window.innerHeight - revealPoint) {
+            section.classList.add('show');
+        } else {
+            section.classList.remove('show');
+        }
+    });
+}
+
+</script>
+{% endblock %}
+
+
+
+
+

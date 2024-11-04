@@ -1,0 +1,132 @@
+{% extends "base3.html" %}
+{% block title %}Freelancer Registration{% endblock %}
+{% block content %}
+<div class="freelancer-form-container">
+    <h2 style="width: 100%; text-align: center;">Freelancer Registration</h2>
+    <form action="" method="POST" enctype="multipart/form-data" class="freelancer-form">
+        
+        <!-- Personal Details Section -->
+        <h3>Personal Details</h3>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+            </div>
+
+            <div class="form-group">
+                <label for="experience_level">Experience Level</label>
+                <select id="experience_level" name="experience_level" required>
+                    <option value="" disabled selected>Select experience level</option>
+                    <option value="beginner">Beginner</option>
+                    <option value="intermediate">Intermediate</option>
+                    <option value="advanced">Advanced</option>
+                    <option value="expert">Expert</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Skills Section -->
+        <h3>Skills</h3>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="video_editing">Video Editing Experience</label>
+                <select id="video_editing" name="video_editing" required>
+                    <option value="" disabled selected>Select experience level</option>
+                    <option value="none">None</option>
+                    <option value="beginner">Beginner</option>
+                    <option value="intermediate">Intermediate</option>
+                    <option value="advanced">Advanced</option>
+                    <option value="expert">Expert</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="content_writing">Content Writing Experience</label>
+                <select id="content_writing" name="content_writing" required>
+                    <option value="" disabled selected>Select experience level</option>
+                    <option value="none">None</option>
+                    <option value="beginner">Beginner</option>
+                    <option value="intermediate">Intermediate</option>
+                    <option value="advanced">Advanced</option>
+                    <option value="expert">Expert</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Additional Information Section -->
+        <h3>Additional Information</h3>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="bio">Short Bio/Description</label>
+                <textarea id="bio" name="bio" rows="4" placeholder="Tell us a little about yourself"></textarea>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="hourly_rate">Hourly Rate (USD)</label>
+                <input type="number" id="hourly_rate" name="hourly_rate" placeholder="Enter your hourly rate" min="0" required>
+            </div>
+
+            <div class="form-group">
+                <label for="job_type">Preferred Job Type</label>
+                <select id="job_type" name="job_type">
+                    <option value="" disabled selected>Select job type</option>
+                    <option value="full_time">Full-Time</option>
+                    <option value="part_time">Part-Time</option>
+                    <option value="freelance">Freelance Only</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="portfolio_link">Portfolio/Website Link</label>
+                <input type="url" id="portfolio_link" name="portfolio_link" placeholder="Enter a link to your portfolio">
+            </div>
+
+            <div class="form-group">
+                <label for="social_media">Social Media Profile (optional)</label>
+                <input type="url" id="social_media" name="social_media" placeholder="Enter a link to your social media profile">
+            </div>
+        </div>
+
+        <!-- File Upload Section -->
+        <h3>Portfolio</h3>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="cv">Upload Your CV</label>
+                <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx" required>
+            </div>
+
+            <div class="form-group">
+                <label for="video">Upload Sample Video (optional)</label>
+                <input type="file" id="video" name="video" accept="video/*">
+                <small class="input-feedback">Upload a short video to demonstrate your skills.</small>
+            </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn-submit">Submit Application</button>
+    </form>
+</div>
+
+<script>
+    document.getElementById('video').addEventListener('change', function() {
+        const fileName = this.files[0] ? this.files[0].name : 'No file chosen';
+        this.parentElement.setAttribute('data-file-name', fileName);
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %}B&B | Support{% endblock %}
+
+{% block content %}
+<section class="contact-banner">
+    <h1>We're Here to Help</h1>
+    <p class="contact-subtitle">Feel free to reach out with any questions, concerns, or feedback</p>
+</section>
+
+<section class="contact-form-section">
+    <div class="contact-info">
+        <h2>Contact Information</h2>
+        <p><strong>Email:</strong> support@example.com</p>
+        <p><strong>Phone:</strong> +1 (555) 123-4567</p>
+        <p><strong>Office Hours:</strong> Mon - Fri, 9:00 AM - 6:00 PM</p>
+        <p><strong>Address:</strong> 1234 Professional Street, Suite 100, Cityville, Country</p>
+        <div id="map"></div> <!-- Google Map Placeholder -->
+        
+       </div>
+
+    <div class="form-container">
+        <h2>Send Us a Message</h2>
+        <form action="#" method="POST" class="contact-form">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" required>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+    </div>
+</section>
+
+<!-- Add Google Maps API Script -->
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+<script >
+    function initMap() {
+    const location = { lat: 32.6121, lng: 0.3453 }; // Replace with your location coordinates
+    const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 12,
+        center: location,
+    });
+    const marker = new google.maps.Marker({
+        position: location,
+        map: map,
+    });
+}
+
+</script>
+{% endblock %}

@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% block title %}Privacy Policy{% endblock %}
+{% block content %}
+<div class="privacy-container">
+    <!-- Header Section -->
+    <header class="privacy-header">
+        <h1>Privacy Policy</h1>
+        <p>Your privacy is important to us. Here’s how we protect and manage your data.</p>
+    </header>
+
+    <!-- Policy Sections with Transitions -->
+  <div class="privacy-container-policy-mgt" style="padding: 20px 100px;">
+    <section class="policy-section" id="data-collection">
+        <h2>1. Data Collection</h2>
+        <p>We collect personal and non-personal information to provide and improve our services. Data collected includes:</p>
+        <ul>
+            <li><strong>Client Information:</strong> Contact details, project requirements, and payment information.</li>
+            <li><strong>Content Editors:</strong> Profile details, expertise, and work history.</li>
+            <li><strong>Administrators:</strong> Access logs, role-based permissions, and account activities.</li>
+        </ul>
+    </section>
+
+    <section class="policy-section" id="usage-of-data">
+        <h2>2. Usage of Data</h2>
+        <p>We use collected data to:</p>
+        <ul>
+            <li>Provide personalized service and content recommendations.</li>
+            <li>Maintain secure transactions and ensure quality standards.</li>
+            <li>Improve user experience by analyzing site usage trends.</li>
+        </ul>
+    </section>
+
+    <section class="policy-section" id="data-sharing">
+        <h2>3. Data Sharing & Security</h2>
+        <p>Data is shared only as necessary and kept secure:</p>
+        <ul>
+            <li>With trusted third-party providers for processing payments or hosting content securely.</li>
+            <li>Administrators have controlled access based on their role to protect user privacy.</li>
+            <li>We implement encryption and regular audits to safeguard your data.</li>
+        </ul>
+    </section>
+
+    <section class="policy-section" id="user-rights">
+        <h2>4. User Rights</h2>
+        <p>Users have the following rights regarding their data:</p>
+        <ul>
+            <li>Access, update, or delete their personal data.</li>
+            <li>Opt out of non-essential data sharing and communication.</li>
+            <li>Request clarification on any of our data practices.</li>
+        </ul>
+    </section>
+
+    <section class="policy-section" id="administrator-policies">
+        <h2>5. Policies for Administrators</h2>
+        <p>Administrators are responsible for maintaining data security and must:</p>
+        <ul>
+            <li>Follow security protocols to prevent unauthorized access.</li>
+            <li>Handle data with confidentiality and integrity.</li>
+            <li>Report any security incidents immediately.</li>
+        </ul>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-policy">
+        <h2>Questions or Concerns?</h2>
+        <p>If you have any questions or need further information, please <a href="{{ url_for('admin_bp.support') }}">contact our support team</a>.</p>
+    </section>
+  </div>
+</div>
+<script>
+    // Reveal sections on scroll
+window.addEventListener('scroll', revealSections);
+
+document.addEventListener('DOMContentLoaded', revealSections);
+function revealSections() {
+    const sections = document.querySelectorAll('.policy-section');
+    const revealPoint = 150;
+
+    sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        if (sectionTop < window.innerHeight - revealPoint) {
+            section.classList.add('show');
+        } else {
+            section.classList.remove('show');
+        }
+    });
+}
+
+</script>
+
+{% endblock %}
+
+

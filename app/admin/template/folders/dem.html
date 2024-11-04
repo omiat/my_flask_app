@@ -1,0 +1,125 @@
+const dropArea = document.getElementById('drop-area');
+const videoInput = document.getElementById('videoInput');
+
+// Click the drop area to trigger file input
+dropArea.addEventListener('click', () => {
+  videoInput.click();
+});
+
+// Highlight the drop area when a file is dragged over it
+dropArea.addEventListener('dragover', (event) => {
+  event.preventDefault();
+  dropArea.classList.add('active');
+});
+
+// Remove highlight when file is dragged out
+dropArea.addEventListener('dragleave', () => {
+  dropArea.classList.remove('active');
+});
+
+// Handle file drop
+dropArea.addEventListener('drop', (event) => {
+  event.preventDefault();
+  dropArea.classList.remove('active');
+
+  const files = event.dataTransfer.files;
+  handleFiles(files);
+});
+
+// Handle file selection from the input
+videoInput.addEventListener('change', () => {
+  const files = videoInput.files;
+  handleFiles(files);
+});
+
+// Function to handle the uploaded files
+function handleFiles(files) {
+  if (files.length > 0) {
+    const file = files[0];
+    if (file.type.startsWith('video/')) {
+      // Update the drop area with the video's title
+      dropArea.innerHTML = `<h2>${file.name}</h2>`;
+    } else {
+      alert('Please upload a valid video file.');
+    }
+  }
+}
+
+
+  
+{% extends 'base.html' %}
+
+{% block title %}B&B|Home{% endblock %}
+
+{% block content %}
+<section class="project-container">
+    <aside class="project-sidebar">
+        <div class="prd-view-sidebar">
+            <h2>Categories</h2>
+        <ul>
+            <li><a href="#">Category 1</a></li>
+            <li><a href="#">Category 2</a></li>
+            <li><a href="#">Category 3</a></li>
+            <li><a href="#">Category 4</a></li>
+        </ul>
+        </div>
+    </aside>
+
+    <main class="main-content">
+       <div class="main-grid-flex-container">
+        <h1>Projects</h1>
+        <div class="view-toggle">
+            <button id="gridViewBtn" class="active">Grid View</button>
+            <button id="listViewBtn">List View</button>
+        </div>
+       </div>
+        <div class="video-grid" id="videoGrid">
+            <div class="video-card">
+                <img src="{{ url_for('admin_bp.static', filename='uploads/pic1.jpg') }}" alt="Video Thumbnail" class="thumbnail">
+
+                <div class="play-button">&#9658;</div>
+                <h3>Video Title</h3>
+            </div>
+            
+        </div>
+
+        <div class="pagination" id="pagination">
+            <button id="prevBtn">Previous</button>
+            <span id="pageInfo"></span>
+            <button id="nextBtn">Next</button>
+        </div>
+    </main>
+</section>
+{% endblock %}
+
+
+
+
+
+
+
+<div class="video-container-box">
+<!-- Filters Sidebar -->
+<div class="filters">
+<h3>Filters</h3>
+<div class="filter-group">
+<p>Call for Entries</p>
+<label><input type="radio" name="call-entries" checked> Open & Closed</label>
+<label><input type="radio" name="call-entries"> Open Only</label>
+</div>
+<div class="filter-group">
+<p>Event Type</p>
+<label><input type="checkbox"> Film Festivals</label>
+<label><input type="checkbox"> Screenwriting Contests</label>
+<label><input type="checkbox"> Music Contests</label>
+<label><input type="checkbox"> Photography Contests</label>
+<label><input type="checkbox"> Online Festivals / Awards Events</label>
+</div>
+</div>
+
+<!-- Main Content -->
+
+</div>
+</div>
+</div>
+

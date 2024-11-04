@@ -1,0 +1,115 @@
+
+{% extends 'base.html' %}
+
+{% block title %}B&B|How It Works{% endblock %}
+
+{% block content %}
+
+<main>
+    <!-- Hero Section -->
+    <section class="hero" style="background-image: url('images/video-editing-hero.jpg');">
+        <h1>Transform Your Raw Footage into Professional Videos</h1>
+        <p>A seamless process designed for content creators.</p>
+        <a href="{{ url_for('admin_bp.index')}}" class="cta-button">Get Started</a>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="steps">
+        <h2>How It Works</h2>
+        <div class="steps-container">
+            <div class="step">
+                <i class="fas fa-video"></i>
+                <h3>Step 1: Record Your Raw Video</h3>
+                <p>Capture your vision with your device. Don’t worry about perfection; our editors will enhance it!</p>
+                <p><strong>Tips:</strong> Use good lighting, clear audio, and a steady camera.</p>
+            </div>
+            <div class="step">
+                <i class="fas fa-upload"></i>
+                <h3>Step 2: Upload Your Video</h3>
+                <p>Easily upload your video through our user-friendly interface. Describe your editing needs for best results.</p>
+            </div>
+            <div class="step">
+                <i class="fas fa-user-edit"></i>
+                <h3>Step 3: Assignment to Video Editors</h3>
+                <p>Our professional video editors will be assigned based on your requirements to ensure quality.</p>
+            </div>
+            <div class="step">
+                <i class="fas fa-eye"></i>
+                <h3>Step 4: Review Your Edited Video</h3>
+                <p>Receive your edited video and review it thoroughly. Make sure it aligns with your vision!</p>
+            </div>
+            <div class="step">
+                <i class="fas fa-comments"></i>
+                <h3>Step 5: Request Refinements</h3>
+                <p>Request refinements if needed. Our editors are ready to make adjustments based on your feedback.</p>
+            </div>
+            <div class="step">
+                <i class="fas fa-check-circle"></i>
+                <h3>Step 6: Final Approval</h3>
+                <p>Approve the final version when you’re satisfied. We strive for your complete happiness!</p>
+            </div>
+            <div class="step">
+                <i class="fas fa-share"></i>
+                <h3>Step 7: Publish or Download</h3>
+                <p>Choose to publish directly from our platform or download your video to share at your convenience.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose-us">
+        <h2>Why Choose Us?</h2>
+        <div class="why-choose-container">
+            <div class="reason"><i class="fas fa-mobile-alt"></i> <p>High Quality video for any device</p></div>
+            <div class="reason"><i class="fas fa-user-tie"></i> <p>Experienced, Skilled Editors</p></div>
+            <div class="reason"><i class="fas fa-cogs"></i> <p>Customizable Experience</p></div>
+            <div class="reason"><i class="fas fa-hourglass-half"></i> <p>Quick Turnaround Time</p></div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <h2>Ready to Get Started?</h2>
+        <p>Transform your content today with  <span style="font-size: 24px; font-weight: 600; color: brown;">Beng</span>'<span style="font-size: 24px; font-weight: 600; color: rgb(50, 42, 165);">Beng</span>. Sign up now!</p>
+        <a href="#sign-up" class="cta-button">Join Now</a>
+    </section>
+</main>
+
+<footer>
+    <!-- Add minimalistic footer with contact information and links -->
+</footer>
+
+<script>
+ // JavaScript to adjust arrow direction for end-of-row and handle last arrow removal on mobile
+window.addEventListener('resize', adjustArrows);
+document.addEventListener('DOMContentLoaded', adjustArrows);
+
+function adjustArrows() {
+    const steps = document.querySelectorAll('.step');
+    const containerWidth = document.querySelector('.steps-container').offsetWidth;
+    
+    // Reset classes and arrows
+    steps.forEach(step => step.classList.remove('end-of-row'));
+    
+    if (window.innerWidth > 768) {
+        // Adjust arrows for desktop layout
+        let currentRowTop = null;
+        steps.forEach((step, index) => {
+            const stepTop = step.getBoundingClientRect().top;
+            if (currentRowTop === null) {
+                currentRowTop = stepTop;
+            } else if (stepTop > currentRowTop) {
+                steps[index - 1].classList.add('end-of-row');
+                currentRowTop = stepTop;
+            }
+        });
+    } else {
+        // Adjust arrows for mobile layout
+        steps.forEach(step => step.classList.remove('end-of-row'));
+        steps[steps.length - 1].classList.add('no-arrow'); // Last item should not have an arrow
+    }
+}
+
+</script>
+{% endblock %}
+

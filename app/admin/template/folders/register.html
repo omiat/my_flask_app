@@ -1,0 +1,33 @@
+{% extends 'base2.html' %}
+{% block title %}B&B|Register{% endblock %}
+{% block content %}
+<div class="login-wrapper">
+    <div class="login-image">
+        <!-- <img src="{{ url_for('static', filename='path/to/background_image.jpg') }}" alt="Background Image" /> -->
+    </div>
+    <div class="login-content">
+        <div class="login-form-container">
+            <h1><span class="beng">Beng</span><span class="bengbeng">'Beng</span></h1>
+            <h2>Create Your Account</h2>
+            <form method="POST" action="{{ url_for('admin_bp.register') }}">
+                <div class="form-group">
+                    <div class="country-code-selector">
+                        <select name="country_code" required>
+                            <option value="" disabled selected>Select Code</option>
+                            <option value="+1">USA (+1)</option>
+                            <option value="+44">UK (+44)</option>
+                            <option value="+91">India (+91)</option>
+                            <!-- Add more country codes as needed -->
+                        </select>
+                    </div>
+                    <input type="text" name="mobile_number" placeholder="Enter Mobile Number" required>
+                </div>
+                <button type="submit" class="sign-in-btn">Register</button>
+            </form>
+            <div class="form-options">
+                <a href="{{ url_for('admin_bp.login') }}">Already have an account? Login</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

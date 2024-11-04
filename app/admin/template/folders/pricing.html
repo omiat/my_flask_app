@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+
+{% block title %}B&B | Pricing{% endblock %}
+
+{% block content %}
+<section class="pricing-banner">
+    <h1>The Perfect Balance of Features and Affordability</h1>
+    <p class="subtitle">Choose a plan that fits your video editing needs</p>
+</section>
+<section class="pricing-table">
+  <!-- Silver Plan -->
+  <div class="plan">
+      <h2>Silver Plan</h2>
+      <select id="silver-plan-frequency" onchange="updatePrice('silver')">
+          <option value="monthly">Monthly</option>
+          <option value="quarterly">Quarterly</option>
+          <option value="yearly">Yearly</option>
+      </select>
+      <div class="price-wrapper">
+          <span class="original-price" id="silver-original-price">$15</span>
+          <span class="discounted-price" id="silver-price">$10</span>
+      </div>
+      <p class="description">Basic editing package for small projects.</p>
+      <ul class="service-list">
+          <li>Basic video editing</li>
+          <li>1 revision per project</li>
+          <li>Standard turnaround time</li>
+          <li>Support for up to 10 minutes of footage</li>
+      </ul>
+      <a href="#" class="purchase-btn">Purchase</a>
+  </div>
+
+  <!-- Gold Plan -->
+  <div class="plan">
+      <h2>Gold Plan</h2>
+      <select id="gold-plan-frequency" onchange="updatePrice('gold')">
+          <option value="monthly">Monthly</option>
+          <option value="quarterly">Quarterly</option>
+          <option value="yearly">Yearly</option>
+      </select>
+      <div class="price-wrapper">
+          <span class="original-price" id="gold-original-price">$40</span>
+          <span class="discounted-price" id="gold-price">$30</span>
+      </div>
+      <p class="description">Advanced editing package with extra features.</p>
+      <ul class="service-list">
+          <li>Advanced video editing</li>
+          <li>3 revisions per project</li>
+          <li>Faster turnaround time</li>
+          <li>Custom transitions and effects</li>
+          <li>Support for up to 30 minutes of footage</li>
+      </ul>
+      <a href="#" class="purchase-btn">Purchase</a>
+  </div>
+
+  <!-- Platinum Plan -->
+  <div class="plan">
+      <h2>Platinum Plan</h2>
+      <select id="platinum-plan-frequency" onchange="updatePrice('platinum')">
+          <option value="monthly">Monthly</option>
+          <option value="quarterly">Quarterly</option>
+          <option value="yearly">Yearly</option>
+      </select>
+      <div class="price-wrapper">
+          <span class="original-price" id="platinum-original-price">$60</span>
+          <span class="discounted-price" id="platinum-price">$50</span>
+      </div>
+      <p class="description">Premium editing package for professionals.</p>
+      <ul class="service-list">
+          <li>Premium editing and special effects</li>
+          <li>Unlimited revisions</li>
+          <li>Priority support</li>
+          <li>Color grading and custom effects</li>
+          <li>Support for up to 60 minutes of footage</li>
+      </ul>
+      <a href="#" class="purchase-btn">Purchase</a>
+  </div>
+
+  <!-- VVIP Plan -->
+  <div class="plan">
+      <h2>VVIP Plan</h2>
+      <select id="vvip-plan-frequency" onchange="updatePrice('vvip')">
+          <option value="monthly">Monthly</option>
+          <option value="quarterly">Quarterly</option>
+          <option value="yearly">Yearly</option>
+      </select>
+      <div class="price-wrapper">
+          <span class="original-price" id="vvip-original-price">$120</span>
+          <span class="discounted-price" id="vvip-price">$100</span>
+      </div>
+      <p class="description">Exclusive package with custom branding.</p>
+      <ul class="service-list">
+          <li>All features in Platinum</li>
+          <li>VIP support</li>
+          <li>Custom branding options</li>
+          <li>Dedicated account manager</li>
+          <li>Express delivery</li>
+      </ul>
+      <a href="#" class="purchase-btn">Purchase</a>
+  </div>
+</section>
+
+    <script>
+  // Define plan prices for different billing cycles
+  const prices = {
+      silver: { monthly: [15, 10], quarterly: [40, 25], yearly: [120, 90] },
+      gold: { monthly: [40, 30], quarterly: [110, 80], yearly: [360, 300] },
+      platinum: { monthly: [60, 50], quarterly: [150, 130], yearly: [600, 500] },
+      vvip: { monthly: [120, 100], quarterly: [300, 250], yearly: [1000, 900] }
+  };
+
+  // Function to update price based on selected frequency
+  function updatePrice(plan) {
+      const frequency = document.getElementById(`${plan}-plan-frequency`).value;
+      const [originalPrice, discountedPrice] = prices[plan][frequency];
+      document.getElementById(`${plan}-original-price`).textContent = `$${originalPrice}`;
+      document.getElementById(`${plan}-price`).textContent = `$${discountedPrice}`;
+  }
+    </script>
+{% endblock %}

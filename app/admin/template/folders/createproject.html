@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+
+{% block title %}B&B|Create Projects{% endblock %}
+
+{% block content %}
+<main class="create-project"  style="margin-top: 20px;" data-controller="create-project" data-create-project-env="production">
+    <!-- Sidebar -->
+    {% if is_logged_in %}
+    <!-- Sidebar (visible only if logged in) -->
+    {% include 'folders/sidebar.html' %}
+    {% endif %}
+     <!-- Sidebar ends -->
+    <!-- main content -->
+     <div class="pwd-content">
+        <form id="project-form" class="project_form" accept-charset="UTF-8">
+            <div class="project-form-div-lbs">
+                <div class="draw_project_title project_title_smaller_name">
+                    <!-- <h3 class="give_project_tile_name">Title</h3> -->
+                </div>
+            </div>
+            <div class="iproject-form-div-lbs">
+                <div class="idraw_project_title project_title_smaller_name">
+                    <input type="text" name="give_project_tile_name" placeholder="Give your Project an Attractive name">
+                </div>
+            </div>
+    
+            <div class="video-upload-area" id="drop-area">
+                <img src="{{ url_for('static', filename='uploads/vecteezy_film-roll-transparent_13532369.png') }}" id="uploadIcon" style="width: 200px; height: auto;">
+                <p id="uploadText">Drag & Drop to Upload Video or Click Here</p>
+                <input type="file" id="videoInput" accept="video/*" hidden>
+            </div> 
+    
+            <div class="inspiration">
+                <h2>Inspiration</h2>
+                <p>Inspired by the video and want something similar? Attach it to your project from:</p>
+    
+                <!-- Video Section -->
+                <div class="video-section">
+                    <h3>Video Options</h3>
+                    <div class="buttons">
+                        <button type="button" id="buttonViedit" onclick="handleButtonClick('vieditInput', 'vieditCheckbox', event)">TikTok</button>
+                        <button type="button" id="buttonYouTube" onclick="handleButtonClick('youtubeInput', 'youtubeCheckbox', event)">YouTube or Vimeo</button>
+                    </div>
+                        
+                        <div id="vieditInput" class="inputContainer" style="display:none;">
+                            <input type="file" id="vieditUpload" accept="video/*" onchange="previewMedia('vieditPlaceholder', this)">
+                            <input type="checkbox" id="vieditCheckbox" style="display:none;">
+                            <input type="text" id="vieditURL" placeholder="Enter YouTube or Vimeo URL" style="display:none;">
+                            <video id="vieditPlaceholder" controls style="display:none;"></video>
+                        </div>
+    
+                        
+                        <div id="youtubeInput" class="inputContainer" style="display:none;">
+                            <input type="file" id="youtubeUpload" accept="video/*" onchange="previewMedia('youtubePlaceholder', this)">
+                            <input type="checkbox" id="youtubeCheckbox" style="display:none;">
+                            <input type="text" id="youtubeURL" placeholder="Enter YouTube or Vimeo URL" style="display:none;">
+                            <video id="youtubePlaceholder" controls style="display:none;"></video>
+                        </div>
+                    </div>
+               
+    
+                <!-- Audio Section -->
+                <div class="audio-section">
+                    <h3>Audio Options</h3>
+                    <div class="buttons">
+                        <button type="button" id="buttonOriginal" class="active" onclick="handleOriginalClick(event)">Original</button>
+                        <button type="button" id="buttonMusicOnly" onclick="handleButtonClick('musicOnlyInput', 'musicOnlyCheckbox', event)">Music Only</button>
+                        <button type="button" id="buttonMusicVoice" onclick="handleButtonClick('musicVoiceInput', 'musicVoiceCheckbox', event)">Music + Voice</button>
+                    </div>
+                        
+                        <div id="originalInput" class="inputContainer" style="display:none;">
+                            <input type="file" id="originalUpload" accept="video/*" onchange="previewMedia('originalPlaceholder', this)">
+                            <input type="checkbox" id="originalCheckbox" checked style="display:none;">
+                            <input type="text" id="originalURL" placeholder="Enter YouTube or Vimeo URL" style="display:none;">
+                            <video id="originalPlaceholder" controls style="display:none;"></video>
+                        </div>
+                       
+                        <div id="musicOnlyInput" class="inputContainer" style="display:none;">
+                            <div class="custom-file-container">
+                                <input type="file" id="musicFile" class="custom-file-input" accept="audio/*">
+                                <label for="musicFile" class="custom-file-label">
+                                    <span class="video-icon">🎵</span> Upload Music File
+                                </label>
+                            </div>
+                            <p id="fileName" style="margin-top: 10px; font-weight: bold; display: none;"></p>
+                            <audio id="audioPlayer" controls style="display:none; margin-top: 10px;"></audio>                         
+                        </div>
+    
+                       
+                        <div id="musicVoiceInput" class="inputContainer" style="display:none;">
+                            <input type="file" id="musicVoiceUpload" accept="audio/*" onchange="previewMedia('musicVoicePlaceholder', this)">
+                            <input type="checkbox" id="musicVoiceCheckbox" style="display:none;">
+                            <input type="text" id="musicVoiceURL" placeholder="Enter YouTube or Vimeo URL" style="display:none;">
+                            <audio id="musicVoicePlaceholder" controls style="display:none;"></audio>
+                        </div>
+                    </div>
+    
+                    
+            </div>
+             <!-- Movie Requirements Section -->
+        <div class="movie-requirements" style="margin-top: 15px;">
+            <!-- Textarea for Additional Comments -->
+            <label for="additionalComments">Additional Comments/ Instructions:</label>
+            <textarea id="additionalComments" rows="4" placeholder="Enter any additional comments or requirements here..." style="width: 100%;"></textarea>
+            <label>
+                <input type="checkbox" id="specificMovieLengthCheckbox" onclick="toggleInputFields('movieLengthInputs')">
+                I need specific movie length
+            </label>
+            <div id="movieLengthInputs" class="input-container" style="display:none;">
+                Final movie length: 
+                <input type="number" id="finalMovieLengthMin" placeholder="Min" style="width: 50px;"> Min
+                <input type="number" id="finalMovieLengthSec" placeholder="Sec" style="width: 50px;"> Sec
+            </div>
+    
+            <label>
+                <input type="checkbox" id="budgetCheckbox" onclick="toggleInputFields('budgetInput')">
+                I know the budget I can spend
+            </label>
+            <div id="budgetInput" class="input-container" style="display:none;">
+                Target budget: 
+                <input type="number" id="targetBudget" placeholder="USD" style="width: 100px;"> USD
+            </div>
+    
+            <label>
+                <input type="checkbox" id="timeLimitCheckbox" onclick="toggleInputFields('timeLimitInput')">
+                I have time limit
+            </label>
+            <div id="timeLimitInput" class="input-container" style="display:none;">
+                Time limit: 
+                <input type="number" id="timeLimitDays" placeholder="days" style="width: 50px;"> days
+            </div>
+    
+        </div>
+    
+        <!-- Buttons -->
+        <div>
+            <button type="button" onclick="saveAsDraft()">Save as draft</button>
+            <button type="button" onclick="publish()">Publish</button>
+        </div>
+    
+        </form>
+     </div>
+     <!-- Main content ends -->
+</main>
+{% endblock %}

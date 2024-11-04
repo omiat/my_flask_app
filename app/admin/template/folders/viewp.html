@@ -1,0 +1,381 @@
+
+
+{% extends 'base.html' %}
+
+{% block title %}B&B|Views{% endblock %}
+
+{% block content %}
+<main class="create-project"  style="margin-top: 20px;" data-controller="create-project" data-create-project-env="production">
+    <!-- Sidebar -->
+    {% if is_logged_in %}
+    <!-- Sidebar (visible only if logged in) -->
+    {% include 'folders/sidebar.html' %}
+    {% endif %}
+     <!-- Sidebar ends -->
+    <!-- main content -->
+     <div class="pwd-content">
+        <div class="video-grid">
+               <!--  -->
+                <!-- Video Card Structure -->
+                <div class="video-card">
+                    <img src="{{ url_for('admin_bp.static', filename='uploads/pic1.jpg') }}" alt="Video Thumbnail" class="thumbnail">
+                    <div class="play-button">&#9658;</div>
+                    <h3>Video Title</h3>
+                
+                    <!-- Like and Dislike Buttons -->
+                    <div class="like-dislike-buttons">
+                        <button class="thumb" onclick="handleLike(this)">&#128077; Like</button>
+                        <button class="thumb" onclick="handleDislike(this)">&#128078; Dislike</button>
+                    </div>
+                
+                    <!-- Rating Pop-up -->
+                    <div class="popup hidden">
+                        <h4>Rate the Editor</h4>
+                        <select class="rating">
+                            <option value="5">5 - Excellent</option>
+                            <option value="4">4 - Good</option>
+                            <option value="3">3 - Average</option>
+                            <option value="2">2 - Below Average</option>
+                            <option value="1">1 - Poor</option>
+                        </select>
+                        <button onclick="submitRating(this)">Submit</button>
+                        <button onclick="closePopup(this)">Close</button>
+                    </div>
+                </div>
+                                <!-- Video Card Structure -->
+<div class="video-card">
+    <img src="{{ url_for('admin_bp.static', filename='uploads/pic1.jpg') }}" alt="Video Thumbnail" class="thumbnail">
+    <div class="play-button">&#9658;</div>
+    <h3>Video Title</h3>
+
+    <!-- Like and Dislike Buttons -->
+    <div class="like-dislike-buttons">
+        <button class="thumb" onclick="handleLike(this)">&#128077; Like</button>
+        <button class="thumb" onclick="handleDislike(this)">&#128078; Dislike</button>
+    </div>
+
+    <!-- Rating Pop-up -->
+    <div class="popup hidden">
+        <h4>Rate the Editor</h4>
+        <select class="rating">
+            <option value="5">5 - Excellent</option>
+            <option value="4">4 - Good</option>
+            <option value="3">3 - Average</option>
+            <option value="2">2 - Below Average</option>
+            <option value="1">1 - Poor</option>
+        </select>
+        <button onclick="submitRating(this)">Submit</button>
+        <button onclick="closePopup(this)">Close</button>
+    </div>
+</div>
+                <!-- Video Card Structure -->
+                <div class="video-card">
+                    <img src="{{ url_for('admin_bp.static', filename='uploads/pic1.jpg') }}" alt="Video Thumbnail" class="thumbnail">
+                    <div class="play-button">&#9658;</div>
+                    <h3>Video Title</h3>
+                
+                    <!-- Like and Dislike Buttons -->
+                    <div class="like-dislike-buttons">
+                        <button class="thumb" onclick="handleLike(this)">&#128077; Like</button>
+                        <button class="thumb" onclick="handleDislike(this)">&#128078; Dislike</button>
+                    </div>
+                
+                    <!-- Rating Pop-up -->
+                    <div class="popup hidden">
+                        <h4>Rate the Editor</h4>
+                        <select class="rating">
+                            <option value="5">5 - Excellent</option>
+                            <option value="4">4 - Good</option>
+                            <option value="3">3 - Average</option>
+                            <option value="2">2 - Below Average</option>
+                            <option value="1">1 - Poor</option>
+                        </select>
+                        <button onclick="submitRating(this)">Submit</button>
+                        <button onclick="closePopup(this)">Close</button>
+                    </div>
+                </div>
+
+
+                                <!-- Video Card Structure -->
+<div class="video-card">
+    <img src="{{ url_for('admin_bp.static', filename='uploads/pic1.jpg') }}" alt="Video Thumbnail" class="thumbnail">
+    <div class="play-button">&#9658;</div>
+    <h3>Video Title</h3>
+
+    <!-- Like and Dislike Buttons -->
+    <div class="like-dislike-buttons">
+        <button class="thumb" onclick="handleLike(this)">&#128077; Like</button>
+        <button class="thumb" onclick="handleDislike(this)">&#128078; Dislike</button>
+    </div>
+
+    <!-- Rating Pop-up -->
+    <div class="popup hidden">
+        <h4>Rate the Editor</h4>
+        <select class="rating">
+            <option value="5">5 - Excellent</option>
+            <option value="4">4 - Good</option>
+            <option value="3">3 - Average</option>
+            <option value="2">2 - Below Average</option>
+            <option value="1">1 - Poor</option>
+        </select>
+        <button onclick="submitRating(this)">Submit</button>
+        <button onclick="closePopup(this)">Close</button>
+    </div>
+</div>
+
+                <!-- Video Card Structure -->
+                <div class="video-card">
+                    <img src="{{ url_for('admin_bp.static', filename='uploads/pic1.jpg') }}" alt="Video Thumbnail" class="thumbnail">
+                    <div class="play-button">&#9658;</div>
+                    <h3>Video Title</h3>
+                
+                    <!-- Like and Dislike Buttons -->
+                    <div class="like-dislike-buttons">
+                        <button class="thumb" onclick="handleLike(this)">&#128077; Like</button>
+                        <button class="thumb" onclick="handleDislike(this)">&#128078; Dislike</button>
+                    </div>
+                
+                    <!-- Rating Pop-up -->
+                    <div class="popup hidden">
+                        <h4>Rate the Editor</h4>
+                        <select class="rating">
+                            <option value="5">5 - Excellent</option>
+                            <option value="4">4 - Good</option>
+                            <option value="3">3 - Average</option>
+                            <option value="2">2 - Below Average</option>
+                            <option value="1">1 - Poor</option>
+                        </select>
+                        <button onclick="submitRating(this)">Submit</button>
+                        <button onclick="closePopup(this)">Close</button>
+                    </div>
+                </div>
+
+                                <!-- Video Card Structure -->
+<div class="video-card">
+    <img src="{{ url_for('admin_bp.static', filename='uploads/pic1.jpg') }}" alt="Video Thumbnail" class="thumbnail">
+    <div class="play-button">&#9658;</div>
+    <h3>Video Title</h3>
+
+    <!-- Like and Dislike Buttons -->
+    <div class="like-dislike-buttons">
+        <button class="thumb" onclick="handleLike(this)">&#128077; Like</button>
+        <button class="thumb" onclick="handleDislike(this)">&#128078; Dislike</button>
+    </div>
+
+    <!-- Rating Pop-up -->
+    <div class="popup hidden">
+        <h4>Rate the Editor</h4>
+        <select class="rating">
+            <option value="5">5 - Excellent</option>
+            <option value="4">4 - Good</option>
+            <option value="3">3 - Average</option>
+            <option value="2">2 - Below Average</option>
+            <option value="1">1 - Poor</option>
+        </select>
+        <button onclick="submitRating(this)">Submit</button>
+        <button onclick="closePopup(this)">Close</button>
+    </div>
+</div>
+
+                <!-- Video Card Structure -->
+                <div class="video-card">
+                    <img src="{{ url_for('admin_bp.static', filename='uploads/pic1.jpg') }}" alt="Video Thumbnail" class="thumbnail">
+                    <div class="play-button">&#9658;</div>
+                    <h3>Video Title</h3>
+                
+                    <!-- Like and Dislike Buttons -->
+                    <div class="like-dislike-buttons">
+                        <button class="thumb" onclick="handleLike(this)">&#128077; Like</button>
+                        <button class="thumb" onclick="handleDislike(this)">&#128078; Dislike</button>
+                    </div>
+                
+                    <!-- Rating Pop-up -->
+                    <div class="popup hidden">
+                        <h4>Rate the Editor</h4>
+                        <select class="rating">
+                            <option value="5">5 - Excellent</option>
+                            <option value="4">4 - Good</option>
+                            <option value="3">3 - Average</option>
+                            <option value="2">2 - Below Average</option>
+                            <option value="1">1 - Poor</option>
+                        </select>
+                        <button onclick="submitRating(this)">Submit</button>
+                        <button onclick="closePopup(this)">Close</button>
+                    </div>
+                </div>
+
+                                <!-- Video Card Structure -->
+<div class="video-card">
+    <img src="{{ url_for('admin_bp.static', filename='uploads/pic1.jpg') }}" alt="Video Thumbnail" class="thumbnail">
+    <div class="play-button">&#9658;</div>
+    <h3>Video Title</h3>
+
+    <!-- Like and Dislike Buttons -->
+    <div class="like-dislike-buttons">
+        <button class="thumb" onclick="handleLike(this)">&#128077; Like</button>
+        <button class="thumb" onclick="handleDislike(this)">&#128078; Dislike</button>
+    </div>
+
+    <!-- Rating Pop-up -->
+    <div class="popup hidden">
+        <h4>Rate the Editor</h4>
+        <select class="rating">
+            <option value="5">5 - Excellent</option>
+            <option value="4">4 - Good</option>
+            <option value="3">3 - Average</option>
+            <option value="2">2 - Below Average</option>
+            <option value="1">1 - Poor</option>
+        </select>
+        <button onclick="submitRating(this)">Submit</button>
+        <button onclick="closePopup(this)">Close</button>
+    </div>
+</div>
+
+                <!-- Video Card Structure -->
+                <div class="video-card">
+                    <img src="{{ url_for('admin_bp.static', filename='uploads/pic1.jpg') }}" alt="Video Thumbnail" class="thumbnail">
+                    <div class="play-button">&#9658;</div>
+                    <h3>Video Title</h3>
+                
+                    <!-- Like and Dislike Buttons -->
+                    <div class="like-dislike-buttons">
+                        <button class="thumb" onclick="handleLike(this)">&#128077; Like</button>
+                        <button class="thumb" onclick="handleDislike(this)">&#128078; Dislike</button>
+                    </div>
+                
+                    <!-- Rating Pop-up -->
+                    <div class="popup hidden">
+                        <h4>Rate the Editor</h4>
+                        <select class="rating">
+                            <option value="5">5 - Excellent</option>
+                            <option value="4">4 - Good</option>
+                            <option value="3">3 - Average</option>
+                            <option value="2">2 - Below Average</option>
+                            <option value="1">1 - Poor</option>
+                        </select>
+                        <button onclick="submitRating(this)">Submit</button>
+                        <button onclick="closePopup(this)">Close</button>
+                    </div>
+                </div>
+
+<!-- Modal Overlay -->
+<div class="modal-overlay" onclick="closeModal();"></div>
+
+<!-- Like Modal -->
+<div id="like-modal" class="custom-modal hidden">
+    <div class="modal-content">
+        <h4>Thank you for liking the video!</h4>
+        <p>Would you like to rate the editor and proceed to download or publish the video?</p>
+        <button onclick="handleLikeModalActions('downloadVideo')">Download Video</button>
+        <button onclick="handleLikeModalActions('publishVideo')">Publish to Social Media</button>
+        <button onclick="closeModal()">Close</button>
+    </div>
+</div>
+
+<!-- Dislike Modal -->
+<div id="dislike-modal" class="custom-modal hidden">
+    <div class="modal-content">
+        <h4>Dislike Confirmation</h4>
+        <p>We're sorry you didn't like the video. Would you like to request a revision?</p>
+        <button onclick="requestRevision()">Request Revision</button>
+        <button onclick="closeModal()">Close</button>
+    </div>
+</div>
+
+            <!--  -->
+            
+        </div>
+    
+        
+     </div>
+     <!-- Main content ends -->
+</main>
+
+<!-- Alert area -->
+
+<script>
+    // Handle Like button click
+function handleLike(button) {
+    const videoCard = button.closest('.video-card');
+    const popup = videoCard.querySelector('.popup');
+
+    // Show the rating popup
+    popup.classList.remove('hidden'); // Show the rating popup
+    showModal('like-modal'); // Show the like modal
+}
+
+// Handle Dislike button click
+function handleDislike(button) {
+    showModal('dislike-modal'); // Show the dislike modal
+}
+
+// Show modal and overlay
+function showModal(modalId) {
+    const modal = document.getElementById(modalId);
+    const overlay = document.querySelector('.modal-overlay');
+
+    if (modal) {
+        modal.classList.remove('hidden'); // Show the modal
+        overlay.style.display = 'block'; // Show the overlay
+    }
+}
+
+// Close modal and overlay
+function closeModal() {
+    const modals = document.querySelectorAll('.custom-modal');
+    const overlay = document.querySelector('.modal-overlay');
+
+    modals.forEach(modal => {
+        modal.classList.add('hidden'); // Hide all modals
+    });
+
+    overlay.style.display = 'none'; // Hide the overlay
+}
+
+// Close rating popup
+function closePopup(button) {
+    const videoCard = button.closest('.video-card');
+    const popup = videoCard.querySelector('.popup');
+    popup.classList.add('hidden'); // Hide the rating popup
+}
+
+// Handle rating submission
+function submitRating(button) {
+    const videoCard = button.closest('.video-card');
+    const ratingSelect = videoCard.querySelector('.rating');
+    const ratingValue = ratingSelect.value;
+
+    // Handle the rating submission logic here
+    console.log(`Rating submitted: ${ratingValue}`);
+
+    // Close the rating popup
+    closePopup(button);
+}
+
+// Example function for handling actions from the like modal
+function handleLikeModalActions(action) {
+    if (action === 'rateEditor') {
+        // Logic for rating the editor
+        alert('Rating the editor!');
+    } else if (action === 'downloadVideo') {
+        // Logic for downloading the video
+        alert('Downloading video!');
+    } else if (action === 'publishVideo') {
+        // Logic for publishing to social media
+        alert('Publishing to social media!');
+    }
+}
+
+// Example function for dislike modal
+function requestRevision() {
+    alert("Request Revision clicked!");
+}
+
+
+</script>
+<style>
+ 
+</style>
+ 
+{% endblock %}
+ 

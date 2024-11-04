@@ -1,0 +1,47 @@
+{% extends "base3.html" %}
+{% block title %}Sign In{% endblock %}
+{% block content %}
+<div class="signin-container">
+    <!-- Left Section: Form -->
+    <div class="form-section">
+        <h1>Sign in</h1>
+        
+        <div class="user-type-selection">
+            <input type="radio" id="client" name="user_type" value="client" checked>
+            <label for="client" class="user-option">
+                <span>Client</span>
+                <p>Register as a client to find professionals for your projects.</p>
+            </label>
+
+            <input type="radio" id="freelancer" name="user_type" value="freelancer">
+            <label for="freelancer" class="user-option">
+                <span>Freelancer</span>
+                <p>Sign up as a freelancer to receive job assignments based on your skills.</p>
+            </label>
+        </div>
+
+        <form action="{{ url_for('admin_bp.phone_verification') }}" method="POST" class="signin-form">
+            <input type="hidden" id="userType" name="user_type" value="client">
+
+            <div class="form-row">
+               <div class="form-group">
+                <label for="phone" class="form-label">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+               </div>
+            </div>
+
+            <button type="submit" class="btn-submit">Next</button>
+        </form>
+
+        <p class="terms">
+            By continuing, you agree to our <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a>.
+        </p>
+    </div>
+
+    <!-- Right Section: Image (hidden on small screens) -->
+    <div class="image-section">
+        <!-- <img src="{{ url_for('admin_bp.static', filename='uploads/logo.png') }}" alt="Sign in illustration"> -->
+    </div>
+</div>
+
+{% endblock %}

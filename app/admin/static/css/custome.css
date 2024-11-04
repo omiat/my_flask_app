@@ -1,0 +1,552 @@
+
+
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; /* Place behind other elements */
+}
+
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the video covers the entire area */
+    filter: blur(5px); /* Apply blur effect to the video */
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay for better text visibility */
+    z-index: 0; /* Place above the video but below the content */
+}
+
+.slideshow-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mySlides {
+    display: none;
+    position: relative;
+    width: 80%; /* Center within banner */
+    text-align: center;
+    z-index: 1; /* Place above the overlay */
+}
+
+h1 {
+    font-size: 36px;
+    margin: 0;
+    padding: 0;
+    line-height: 1.2;
+}
+
+p {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.stats {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.search-form {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 50px; /* Position above the bottom */
+    z-index: 1; /* Place above the overlay */
+}
+
+.search-form input {
+    padding: 12px 20px;
+    width: 50%;
+    font-size: 16px;
+    border-radius: 25px;
+    border: none;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    outline: none;
+    transition: box-shadow 0.3s ease;
+}
+
+.search-form input:focus {
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Slideshow fade animation */
+.fade {
+    animation-name: fade;
+    animation: fade 1.5s ease-in-out;
+}
+
+header nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .ed_logo {
+    line-height: 50px;
+    font-weight: bolder;
+    font-size: 2em;
+    color: #fff;
+    font-weight: 600; /* Semi-bold */
+    display: inline-block;
+    cursor: pointer;
+}
+
+/* Main navigation links */
+header nav ul {
+    display: flex;
+    list-style: none;
+    line-height: 50px;
+}
+
+header nav ul li {
+    padding: 0 15px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+}
+
+/* Menu toggle (hamburger icon) styles */
+header .menu-toggle {
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    z-index: 11;
+}
+
+header .menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #000;
+    margin: 5px 0;
+}
+
+/* Divider between primary and secondary nav */
+.ul-divider {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    position: relative;
+}
+
+.primary-nav, .secondary-nav {
+    display: flex;
+}
+
+
+/* Content section */
+.content {
+    /* padding: 20px; */
+    background-color: #fff;
+    position: relative;
+    flex: 12;
+}
+
+/* Welcome home page styling */
+/* Main Banner Section */
+.banner {
+    position: relative;
+    min-height: 550px;
+    color: #fff;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Prevent overflow from video */
+}
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+/* Ensure proper alignment */
+header.banner form.search-form {
+    width: 100%;
+}
+
+.search-form input {
+    max-width: 600px; /* Keep search box reasonable width */
+}
+
+/* Info Sections */
+
+/* Welcome home page styling */
+/* Footer styles */
+footer {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: auto; /* Push the footer to the bottom */
+}
+
+.create-project{
+    padding: 0 20px;
+    width: 100%;
+    position: relative;
+    display: flex;
+  }
+  .sidebar {
+    color: white;
+    width: 250px;
+    transition: transform 0.3s ease;
+    min-height: 300px;
+    transform: translateX(0);
+    position: relative; /* Required for absolute positioning of button */
+    margin-left: 5px;
+    /* display: none; */
+}
+
+.sidebar-inner-placeholder{
+  background-color: #d6d1d1;
+}
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar li {
+    padding: 15px;
+}
+.pwd-content{
+    position: relative;
+    flex-grow: 1;
+    padding: 20px;
+    transition: margin-left 0.3s ease, width 0.3s ease;
+    width: calc(100% - 250px);
+    top: -20px;
+}
+.toggle-btn {
+    background-color: #444;
+    color: white;
+    width: 100%; /* Adjust width to fit text */
+    padding: 15px;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    top: -10px;  
+    z-index: 1; 
+    border-radius: 0px; 
+}
+
+
+.toggle-btn:hover {
+    background-color: #555; 
+}
+
+.sidebar.collapsed {
+    transform: translateX(-170%); 
+}
+
+.sidebar.collapsed ~ .pwd-content {
+    width: 100%; 
+    padding: 0;
+    margin-left: -250px;
+}
+
+.sidebar.collapsed .toggle-btn {
+    position: fixed; 
+    top: -20px; 
+    width: 20%;
+    left: 350px; 
+    z-index: 1; 
+}
+
+.sidebar.collapsed .toggle-btn > span {
+    display: none;
+}
+
+.create-project form{
+    width: 100%;
+    text-align: center;
+    /* background-color: #000; */
+}
+
+.create-project h3.give_project_tile_name{
+    color: #343a40 !important;
+}
+
+.idraw_project_title input[type=text]{width: 100%; padding: 8px 20px; font-size: 20px;}
+
+.video-upload-area {
+    width: 100%;
+    margin-top: 10px;
+    height: 300px;
+    border: 3px #ccc;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fafafa;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: relative;
+  }
+  
+  #uploadIcon {
+    width: 100px; /* Adjust size as needed */
+    height: 100px; /* Adjust size as needed */
+    margin-bottom: 10px;
+  }
+  
+  .video-upload-area p {
+    font-size: 20px;
+    color: #333;
+  }
+  
+  .video-upload-area h2 {
+    font-size: 24px;
+    color: #4caf50;
+    margin: 0;
+  }
+  
+  .video-upload-area:hover {
+    background-color: #e9e9e9;
+  }
+  
+  .video-upload-area.active {
+    background-color: #d0f0d0;
+    border-color: #4caf50;
+  }
+  
+ /* Container for file input */
+.custom-file-container {
+    display: inline-block;
+    position: relative;
+    width: auto;
+  }
+  
+  /* Hide the default file input and ensure it's clickable */
+  .custom-file-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2;
+  }
+  
+  /* Custom label that acts as the clickable area */
+  .custom-file-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: background-color 0.3s ease;
+    gap: 10px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Icon inside the label */
+  .video-icon {
+    font-size: 20px;
+    vertical-align: middle;
+  }
+  
+  /* Hover effect for the label */
+  .custom-file-label:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Style for the audio player */
+  #audioPlayer {
+    width: 100%;
+  }
+  
+
+/* Inspirations */
+.inspiration {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.inspiration h2 {
+    color: #008cba;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.inspiration p {
+    color: #666;
+    font-size: 16px;
+}
+
+.video-section,
+.audio-section {
+    margin-top: 15px;
+}
+
+.video-section h3,
+.audio-section h3 {
+    color: #007bb8;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 15px; /* Add some space below the buttons */
+}
+
+button {
+    background-color: #004080;
+    color: #ffffff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    flex: 1; /* Allows buttons to grow equally */
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #005f8b;
+}
+
+#buttonOriginal {
+    background-color: #28a745;
+}
+
+#buttonOriginal:hover {
+    background-color: #218838;
+}
+
+#buttonMusicOnly,
+#buttonMusicVoice,
+#buttonYouTube,
+#buttonViedit {
+    background-color: #004080;
+    color: #ffffff;
+}
+
+#buttonMusicOnly:hover,
+#buttonMusicVoice:hover,
+#buttonYouTube:hover,
+#buttonViedit:hover {
+    background-color: #005f8b;
+}
+
+.inputContainer {
+    margin: 10px 0;
+    display: none; /* Keep it hidden by default */
+    width: 100%; /* Ensure it covers the entire width */
+}
+
+.inputContainer input[type="file"],
+.inputContainer input[type="text"] {
+    width: 100%; /* Ensure file and URL inputs cover the full width */
+    padding: 10px; /* Add some padding for better appearance */
+    margin-top: 10px; /* Space between input fields and the previous content */
+    border: 1px solid #ccc; /* Add border for better visibility */
+    border-radius: 4px; /* Rounded corners */
+}
+
+video, audio {
+    width: 100%; /* Ensure media elements cover the full width */
+    margin-top: 10px;
+    border-radius: 4px;
+}
+
+
+/* Inspirations */
+/* Movie area */
+.movie-requirements {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.movie-requirements label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.input-container {
+    margin-left: 20px; /* Indent input fields for clarity */
+    margin-bottom: 10px; /* Space between input fields */
+}
+
+textarea {
+    border-radius: 0px;
+    border: none;
+    outline: none;
+    padding: 10px;
+    margin-top: 5px;
+    border-bottom: 1px solid #ccc;
+    font-size: 14px;
+    resize: none; /* Allow vertical resizing */
+    width: 100%; /* Full width */
+}
+textarea:focus,input:focus{border-bottom: 2px solid #007bff;}
+input[type=number]{
+    min-width: 50px;
+    padding: 8 10px;
+    min-width: 30px;
+    font-size: 20px;
+}
+
+button {
+    background-color: #004080;
+    color: #ffffff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px; /* Space above buttons */
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #005f8b;
+}
+/* Movie area */
+
+
+
+
+

@@ -1,0 +1,105 @@
+
+{% extends 'base.html' %}
+
+{% block title %}B&B|Projects{% endblock %}
+
+{% block content %}
+
+<div class="project-container">
+    <!-- Search bar -->   
+<div class="project-search-bar">
+    <input type="text" placeholder="Search for Videos and keywords">
+    <button class="pr-btn">Search</button>
+  </div>
+
+  <div class="top-video-menu-bar">
+    <div class="label">Filter</div>
+    <div class="filter-video-right">
+        <label for="">Sort:</label>
+        <select name="" id="">
+            <option value=""></option>
+            <option value="">Most Reviewed</option>
+            <option value="">Most Popular</option>
+            <option value="">Recently Added</option>
+            <option value="">Early Deadline</option>
+        </select>
+    </div>
+</div>
+
+  <div class="video-container-box">
+    <!-- Filters Sidebar -->
+    <div class="filters">
+    <h3>Filters</h3>
+    <div class="filter-group">
+    <p>Call for Entries</p>
+    <label><input type="radio" name="call-entries" checked> Open & Closed</label>
+    <label><input type="radio" name="call-entries"> Open Only</label>
+    </div>
+    <div class="filter-group">
+    <p>Video Categories</p>
+    <label><input type="checkbox" checked> All</label>
+    <label><input type="checkbox"> Animations</label>
+    <label><input type="checkbox">Documentary</label>
+    <label><input type="checkbox"> Virtual Reality</label>
+    <label><input type="checkbox"> Photography Contests</label>
+    <label><input type="checkbox"> Music Video</label>
+    <label><input type="checkbox"> Student</label>
+    </div>
+    </div>
+
+
+    <div class="main-content">
+     
+
+        <div class="festival-list">
+        <!-- Festival Card 1 -->
+        <div class="festival-card">
+          <img src="https://via.placeholder.com/150" alt="Festival Logo">
+          <div class="festival-info">
+            <h4>International Music Video Underground</h4>
+            <p>Paris, France</p>
+            <p>8 Years</p>
+           <div class="info-video-info-btns">
+            <div class="info-badge">
+                <span class="gold-badge">GOLD</span>
+            <p class="deadline">Final Deadline: Today</p>
+            </div>
+            <div class="info-btns-badge">
+            <button class="view-btn">Review Video</button>
+            
+            <button class="submit-btn">Publish</button>
+            </div>
+           </div>
+          </div>
+        </div>
+        
+        <!-- Festival Card 2 -->
+        <div class="festival-card">
+          <img src="https://via.placeholder.com/150" alt="Festival Logo">
+          <div class="festival-info">
+            <h4>Paris International Film Festival</h4>
+            <p>Paris, France</p>
+            <p>6 Years</p>
+            <div class="info-video-info-btns">
+                <div class="info-badge">
+                    <span class="gold-badge">GOLD</span>
+                <p class="deadline">Final Deadline: Tomorrow</p>
+                </div>
+                <div class="info-btns-badge">
+                <button class="view-btn">Review Video</button>
+                
+                <button class="submit-btn">Publish Now</button>
+                </div>
+               </div>
+          </div>
+        </div>
+        </div>
+        <!--  -->
+
+  </div>
+
+</div>
+{% endblock %}
+
+
+

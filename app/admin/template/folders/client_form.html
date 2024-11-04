@@ -1,0 +1,83 @@
+{% extends "base3.html" %}
+{% block title %}Client Registration{% endblock %}
+{% block content %}
+<div class="freelancer-form-container">
+    <a href="{{url_for('admin_bp.index')}}">Back to Home</a>
+    <h2 style="width: 100%; text-align: center;">Client Registration</h2>
+    <form action="" method="POST" enctype="multipart/form-data" class="freelancer-form">
+        
+        <!-- Personal Details Section -->
+        <h3>Personal Details</h3>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="name">First Name</label>
+                <input type="text" id="fname" name="fname" placeholder="Enter your first name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Last Name</label>
+                <input type="text" id="lname" name="lname" placeholder="Enter your last name" required>
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+            </div>
+
+        </div>
+
+        <!-- Password Section -->
+        <h3>Passwords</h3>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="video_editing">Enter Password</label>
+                   <input type="password" id="pwd" name="pwd" placeholder="*********" required>
+            </div>
+
+            <div class="form-group">
+                <label for="content_writing">Confirm Password</label>
+                   <input type="password" id="cpwd" name="cpwd" placeholder="*********" required>
+             </div>
+        </div>
+
+     
+        <div class="form-row">
+          
+
+            <div class="form-group">
+                <label for="job_type">Preferred Job Type</label>
+                <select id="job_type" name="job_type">
+                    <option value="" disabled selected>Select job type</option>
+                    <option value="full_time">Full-Time</option>
+                    <option value="part_time">Part-Time</option>
+                    <option value="freelance">Freelance Only</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="portfolio_link">Portfolio/Website Link</label>
+                <input type="url" id="portfolio_link" name="portfolio_link" placeholder="Enter a link to your portfolio">
+            </div>
+
+            <div class="form-group">
+                <label for="social_media">Social Media Profile (optional)</label>
+                <input type="url" id="social_media" name="social_media" placeholder="Enter a link to your social media profile">
+            </div>
+        </div>
+
+        <!-- File Upload Section -->
+    
+        <!-- Submit Button -->
+        <button type="submit" class="btn-submit">Submit Application</button>
+    </form>
+</div>
+
+{% endblock %}

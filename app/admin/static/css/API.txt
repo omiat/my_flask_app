@@ -1,0 +1,53 @@
+
+// Twitter Developer OAuth 1.0
+
+API Key=WTjkS8bus6NDzmzSPyH7O8X52
+API Key Secret=KjORjSzrlnrrflD3cfQ5Ds63hHJ41CqsvDY8xoYubWT7eGEZaI
+Bearer Token=AAAAAAAAAAAAAAAAAAAAAOw7wgEAAAAAcEFyk55QJZvHKWRP9QuyDc5d1QM%3DGP7ifSAmGio0gU3OkiNC8IiJuE4dT2oW5B4TufzTbbOWZqHPxx
+Access Token=912711607444283393-2EpbL70YvdH2EnRZ5DuOVSATkj7jZCL
+Access Token Secret = 0gMHfZphuNGg0S5o3AQjJOKZeGgrRe6r0rZPLesUb2RIY
+// Twitter Developer
+// https://developer.x.com/en/portal/products
+
+@admin_bp.route('/pricing')
+def pricing():
+    is_logged_in = session.get('logged_in', False)
+    return render_template('folders/pricing.html', is_logged_in=is_logged_in)
+# Route for serving header
+
+
+
+# Phone verification page
+@admin_bp.route('/phone_verification', methods=['POST', 'GET'])
+def phone_verification():
+    if request.method == 'POST':
+        user_type = request.form.get('user_type')
+        phone = request.form.get('phone')
+        # Here you would send OTP to the user's phone
+        return render_template('phone_verification.html', phone=phone, user_type=user_type)
+    return redirect(url_for('index'))
+
+# OTP verification (mock-up here)
+@admin_bp.route('/verify_otp', methods=['POST'])
+def verify_otp():
+    otp = request.form.get('otp')
+    user_type = request.form.get('user_type')
+    if otp == "1234":  # Here you’d check OTP validity
+        if user_type == "client":
+            return redirect(url_for('client_form'))
+        else:
+            return redirect(url_for('freelancer_form'))
+    return render_template('phone_verification.html', error="Invalid OTP", user_type=user_type)
+
+# Client registration form
+@admin_bp.route('/client_form')
+def client_form():
+    return render_template('client_form.html')
+
+# Freelancer registration form
+@admin_bp.route('/freelancer_form')
+def freelancer_form():
+    return render_template('freelancer_form.html')
+
+if __name__ == '__main__':
+    admin_bp.run(debug=True)

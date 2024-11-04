@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}Help Center{% endblock %}
+{% block content %}
+
+<div class="help-center-container">
+    <!-- Header Section -->
+    <header class="help-center-header">
+        <h1>Help Center</h1>
+        <p>Find answers to common questions or contact support for further help.</p>
+        <input type="text" placeholder="Search for answers..." class="search-bar" id="searchBar" onkeyup="filterCards()">
+    </header>
+
+    <!-- Popular Topics Section with Cards -->
+    <section class="help-center-cards">
+        <div class="card" onclick="window.location.href='{{ url_for('admin_bp.support') }}'">
+            <h3>Account Issues</h3>
+            <p>Managing account settings, password reset, and more.</p>
+            <button>Learn More</button>
+        </div>
+        <div class="card" onclick="window.location.href='{{ url_for('admin_bp.support') }}'">
+            <h3>Billing & Payments</h3>
+            <p>Invoices, payment methods, and refund policies.</p>
+            <button>Learn More</button>
+        </div>
+        <div class="card" onclick="window.location.href='{{ url_for('admin_bp.support') }}'">
+            <h3>Technical Support</h3>
+            <p>Fix common issues and report bugs for assistance.</p>
+            <button>Learn More</button>
+        </div>
+        <div class="card" onclick="window.location.href='{{ url_for('admin_bp.support') }}'">
+            <h3>Getting Started</h3>
+            <p>Guides and tutorials to help you get started.</p>
+            <button>Learn More</button>
+        </div>
+    </section>
+
+    <!-- Contact Support Section -->
+    <section class="contact-support">
+        <h2>Need More Help?</h2>
+        <p>Can't find what you're looking for? Contact our support team directly.</p>
+        <a href="{{ url_for('admin_bp.support') }}" class="contact-button">Contact Support</a>
+    </section>
+</div>
+
+
+{% endblock %}
+
+
+

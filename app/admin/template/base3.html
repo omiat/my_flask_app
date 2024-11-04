@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('admin_bp.static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="loader-container" id="loader-container">
+        <div class="loader"></div> 
+    </div>
+    <div class="container">
+         <!-- Header Section -->
+    <header class="header">
+        <div class="nav-title">
+            <h1 onclick="navigateToUrl('{{ url_for('admin_bp.home') }}')" style="cursor: pointer;">Beng'Beng</h1>
+        
+        </div>
+    </header>
+    <script>
+    function navigateToUrl(url) {
+        window.location.href = url;
+    }
+    </script>
+    <div class="content"> {% block content %}{% endblock %}</div>
+       
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const userTypeRadios = document.querySelectorAll('input[name="user_type"]');
+            const userTypeInput = document.getElementById('userType');
+            
+            userTypeRadios.forEach(radio => {
+                radio.addEventListener('change', (event) => {
+                    userTypeInput.value = event.target.value;
+                });
+            });
+        });
+        </script>
+        <script>
+            function hideLoader() {
+            const loaderContainer = document.querySelector('.loader-container');
+            loaderContainer.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+          document.body.style.overflow = 'hidden';
+          setTimeout(hideLoader, 700); 
+        
+              </script>
+        
+</body>
+</html>

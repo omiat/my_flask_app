@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block title %}Our Story{% endblock %}
+{% block content %}
+
+<div class="story-container">
+    <header class="story-header">
+        <h1>Our Story</h1>
+        <p>Discover the journey that brought us here and where we're headed next.</p>
+    </header>
+<div class="story-container-fmg" style="padding: 20px 100px;">
+    
+    <section class="story-section" id="our-journey">
+        <h2>Our Journey</h2>
+        <p>From humble beginnings, we started with a passion for video editing and content creation. Our founders believed that every story deserves to be told beautifully, leading to the establishment of our company in [Year].</p>
+        <p>Over the years, we have evolved, expanded our services, and built a team of talented professionals dedicated to helping clients achieve their creative visions.</p>
+    </section>
+
+    <section class="story-section" id="mission-vision">
+        <h2>Our Mission & Vision</h2>
+        <p><strong>Mission:</strong> To empower individuals and businesses through exceptional video editing and content creation services that resonate with audiences.</p>
+        <p><strong>Vision:</strong> To be a leading creative agency known for quality, innovation, and outstanding customer service, bridging the gap between ideas and visual storytelling.</p>
+    </section>
+
+    <section class="story-section" id="core-values">
+        <h2>Core Values</h2>
+        <ul>
+            <li><strong>Creativity:</strong> We believe in the power of creativity to inspire and connect.</li>
+            <li><strong>Integrity:</strong> We conduct our business with honesty and transparency.</li>
+            <li><strong>Collaboration:</strong> Working together with our clients leads to the best results.</li>
+            <li><strong>Excellence:</strong> We strive for excellence in everything we do.</li>
+        </ul>
+    </section>
+
+    <section class="story-section" id="team">
+        <h2>Meet the Team</h2>
+        <p>Our diverse team brings together a wealth of experience and talent. We are passionate about our work and dedicated to providing the best service possible.</p>
+        <div class="team-profiles">
+            <div class="team-member">
+                <img src="{{ url_for('static', filename='images/team1.jpg') }}" alt="Team Member 1">
+                <h3>Jane Doe</h3>
+                <p>Creative Director</p>
+            </div>
+            <div class="team-member">
+                <img src="{{ url_for('static', filename='images/team2.jpg') }}" alt="Team Member 2">
+                <h3>John Smith</h3>
+                <p>Lead Editor</p>
+            </div>
+            <!-- Add more team members as needed -->
+        </div>
+    </section>
+
+    <section class="story-section" id="get-in-touch">
+        <h2>Get In Touch</h2>
+        <p>We’d love to hear from you! Whether you have a project in mind or just want to chat, feel free to <a href="{{ url_for('admin_bp.support') }}">contact us</a>.</p>
+    </section>
+</div>
+</div>
+
+<script>
+    
+
+</script>
+
+{% endblock %}
+
+
